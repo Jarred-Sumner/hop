@@ -6,11 +6,11 @@ Fast & simple archive format designed for quickly reading individual files or a 
 
 <img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" height=400 />
 
-| Format | Fast random access | Fast at extracting | Fast at archiving | Compression | Encryption | Ancient/Mature |
-| ------ | ------------------ | ------------------ | ----------------- | ----------- | ---------- | -------------- |
-| hop    | ✅                 | ✅                 | ✅                | ❌          | ❌         | ❌             |
-| tar    | ❌                 | ✅                 | ✅                | ❌          | ❌         | ✅             |
-| zip    | ✅ (small files)   | ❌                 | ❌                | ✅          | ✅         | ✅             |
+| Format | Fast random access | Fast at extracting | Fast at archiving | Compression | Encryption | Mature |
+| ------ | ------------------ | ------------------ | ----------------- | ----------- | ---------- | ------ |
+| hop    | ✅                 | ✅                 | ✅                | ❌          | ❌         | ❌     |
+| tar    | ❌                 | ✅                 | ✅                | ❌          | ❌         | ✅     |
+| zip    | ✅ (small files)   | ❌                 | ❌                | ✅          | ✅         | ✅     |
 
 Features:
 
