@@ -1,6 +1,6 @@
 # hop
 
-Simple archive format designed for fast non-sequential file access & reading. Possibly will be used in [Bun](https://bun.sh).
+Simple archive format designed for quickly reading some files without extracting the entire archive. Possibly will be used in [Bun](https://bun.sh).
 
 25x faster than `unzip` and 10x faster than `tar` at reading individual files (uncompressed)
 
