@@ -62,11 +62,11 @@ Why can't software read many tiny files with similar performance characteristics
 
 Using [tigerbeetle](https://github.com/coilhq/tigerbeetle) github repo as an example
 
-Archiving:
+Extracting:
 
 ![image](https://user-images.githubusercontent.com/709451/141054452-73a99912-94ce-44aa-b7cb-b788731d0a60.png)
 
-Extracting:
+Archiving:
 
 ![image](https://user-images.githubusercontent.com/709451/141054517-cb3c7b43-4730-40ee-9c3f-7bdd9de6a076.png)
 
