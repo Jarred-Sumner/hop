@@ -2,7 +2,7 @@
 
 Fast & simple archive format designed for quickly reading individual files or a handful of individual files. Possibly will be used in [Bun](https://bun.sh).
 
-25x faster than `zip` and 15x faster than `tar` at reading individual files
+25x faster than `unzip` and 15x faster than `tar` at reading individual files (uncompressed)
 
 <img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" />
 
