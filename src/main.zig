@@ -165,8 +165,10 @@ const Library = struct {
     };
 
     pub fn extract(this: *Library, dest: std.fs.Dir, comptime verbose: bool) !void {
+        const metadata = this.archive.metadata;
         for (this.archive.files) |file| {
-            var name_slice = this.archive.metadata[file.name.off..][0..file.name.len :0];
+            var remainder_slice = metadata[file.name.off..];
+            var name_slice = remainder_slice[0..file.name.len :0];
 
             var out = dest.createFileZ(name_slice, .{ .truncate = true }) catch brk: {
                 if (std.fs.path.dirname(name_slice)) |dirname| {
@@ -317,9 +319,9 @@ pub fn main() anyerror!void {
             return err;
         };
         var outfile: [std.fs.MAX_PATH_BYTES]u8 = undefined;
-        std.mem.copy(u8, &outfile, realpath);
-        std.mem.copy(u8, outfile[realpath.len..], ".hop" ++ [_]u8{0});
-        var destpath = outfile[0 .. realpath.len + ".hop".len :0];
+        std.mem.copy(u8, &outfile, std.fs.path.basename(realpath));
+        std.mem.copy(u8, outfile[std.fs.path.basename(realpath).len..], ".hop" ++ [_]u8{0});
+        var destpath = outfile[0 .. std.fs.path.basename(realpath).len + ".hop".len :0];
         var destination_file = std.fs.createFileAbsoluteZ(destpath, .{
             .read = true,
         }) catch |err| {
