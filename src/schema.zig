@@ -318,8 +318,23 @@ pub fn Writer(comptime WritableStream: type) type {
                     }
                 },
                 else => {
-                    for (slice) |val| {
-                        try val.encode(this);
+                    switch (comptime @typeInfo(T)) {
+                        .Struct => |Struct| {
+                            switch (Struct.layout) {
+                                .Packed => {
+                                    try this.write(std.mem.sliceAsBytes(slice));
+                                },
+                                else => {},
+                            }
+                        },
+                        .Enum => |type_info| {
+                            try this.writeArray(type_info.tag_type, @ptrCast([*]T, slice.ptr)[0..length]);
+                        },
+                        else => {
+                            for (slice) |val| {
+                                try val.encode(this);
+                            }
+                        },
                     }
                 },
             }
