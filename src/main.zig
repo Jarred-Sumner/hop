@@ -322,7 +322,7 @@ pub fn main() anyerror!void {
         std.mem.copy(u8, &outfile, std.fs.path.basename(realpath));
         std.mem.copy(u8, outfile[std.fs.path.basename(realpath).len..], ".hop" ++ [_]u8{0});
         var destpath = outfile[0 .. std.fs.path.basename(realpath).len + ".hop".len :0];
-        var destination_file = std.fs.createFileAbsoluteZ(destpath, .{
+        var destination_file = std.fs.cwd().createFileZ(destpath, .{
             .read = true,
         }) catch |err| {
             std.log.err("Error creating destination directory {s}", .{@errorName(err)});

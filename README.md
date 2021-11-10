@@ -14,6 +14,7 @@ Anti-features:
 - I wrote it in about 3 hours
 - Like tar, does not answer compression
 - No checksums yet. Probably not a good idea to use this for untrusted data until that's fixed.
+- Ignores symlinks
 
 ## Usage
 
