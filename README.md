@@ -4,13 +4,13 @@ Fast & simple archive format designed for quickly reading individual files or a 
 
 25x faster than `zip` and 15x faster than `tar` at reading individual files
 
-<img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" height=400 />
+<img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" />
 
 | Format | Fast random access | Fast at extracting | Fast at archiving | Compression | Encryption | Mature |
 | ------ | ------------------ | ------------------ | ----------------- | ----------- | ---------- | ------ |
 | hop    | ✅                 | ✅                 | ✅                | ❌          | ❌         | ❌     |
 | tar    | ❌                 | ✅                 | ✅                | ❌          | ❌         | ✅     |
-| zip    | ✅ (small files)   | ❌                 | ❌                | ✅          | ✅         | ✅     |
+| zip    | ✅ (when small)    | ❌                 | ❌                | ✅          | ✅         | ✅     |
 
 Features:
 
