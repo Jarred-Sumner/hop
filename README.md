@@ -6,16 +6,16 @@ Fast & simple archive format designed for quickly reading individual files or a 
 
 <img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" />
 
-| Format | Fast random access | Fast at extracting | Fast at archiving | Compression | Encryption | Mature |
-| ------ | ------------------ | ------------------ | ----------------- | ----------- | ---------- | ------ |
-| hop    | ✅                 | ✅                 | ✅                | ❌          | ❌         | ❌     |
-| tar    | ❌                 | ✅                 | ✅                | ❌          | ❌         | ✅     |
-| zip    | ✅ (when small)    | ❌                 | ❌                | ✅          | ✅         | ✅     |
+| Format | Fast random access | Fast extraction | Fast archiving | Compression | Encryption | Mature |
+| ------ | ------------------ | --------------- | -------------- | ----------- | ---------- | ------ |
+| hop    | ✅                 | ✅              | ✅             | ❌          | ❌         | ❌     |
+| tar    | ❌                 | ✅              | ✅             | ❌          | ❌         | ✅     |
+| zip    | ✅ (when small)    | ❌              | ❌             | ✅          | ✅         | ✅     |
 
 Features:
 
 - Faster at printing individual files than `tar` & `zip` (with compression disabled on both)
-- Faster extraction than `zip`and +/- 10% faster than `tar` (with compression disabled on both)
+- Faster extraction than `zip` and +/- 10% faster than `tar` (with compression disabled on both)
 - Faster archiving than `zip` and +/- 10% faster than `tar` (with compression disabled on both)
 
 Anti-features:
@@ -48,6 +48,11 @@ To print one file from the archive:
 ```bash
 hop archive.hop package.json
 ```
+
+## Why?
+
+- Reading and writing lots of tiny files incurs significant syscall overhead, and (npm) packages often have lots of tiny files. Zip files are unacceptably slow to read from like a directory. tar files extract quickly, but are slow at non-sequential access.
+- Reading directory entries (`ls`) in large directory trees is slow
 
 ## Some benchmarks
 
