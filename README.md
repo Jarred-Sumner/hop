@@ -2,7 +2,7 @@
 
 Fast & simple archive format designed for quickly reading individual files or a handful of individual files. Possibly will be used in [Bun](https://bun.sh).
 
-25x faster than `unzip` and 15x faster than `tar` at reading individual files (uncompressed)
+25x faster than `unzip` and 10x faster than `tar` at reading individual files (uncompressed)
 
 <img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" />
 
@@ -14,9 +14,9 @@ Fast & simple archive format designed for quickly reading individual files or a 
 
 Features:
 
-- Faster at printing individual files than `tar` & `zip` (with compression disabled on both)
-- Faster extraction than `zip` and +/- 10% faster than `tar` (with compression disabled on both)
-- Faster archiving than `zip` and +/- 10% faster than `tar` (with compression disabled on both)
+- Faster at printing individual files than `tar` & `zip` (compression disabled)
+- Faster extraction than `zip`, comparable to `tar` (compression disabled)
+- Faster archiving than `zip`, comparable to `tar` (compression disabled)
 
 Anti-features:
 
@@ -51,6 +51,8 @@ hop archive.hop package.json
 
 ## Why?
 
+Why can't software read many tiny files with similar performance characteristics as individual files?
+
 - Reading and writing lots of tiny files incurs significant syscall overhead, and (npm) packages often have lots of tiny files. Zip files are unacceptably slow to read from like a directory. tar files extract quickly, but are slow at non-sequential access.
 - Reading directory entries (`ls`) in large directory trees is slow
 
@@ -76,7 +78,7 @@ Extracting a `node_modules` folder
 
 ## Why faster?
 
-- It stores an array of hashes for each file path and the file paths are sorted lexigraphically
+- It stores an array of hashes for each file path and the file paths are sorted lexigraphically. This makes non-sequential access faster than tar, but can make creating new archives slower.
 - Does not store directories, only files
 - Does not support appending to the existing file
 - [`copy_file_range`](https://man7.org/linux/man-pages/man2/copy_file_range.2.html)
