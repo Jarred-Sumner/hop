@@ -37,6 +37,16 @@ To print one file from the archive:
 hop archive.hop package.json
 ```
 
+## Some benchmarks
+
+Using [tigerbeetle](https://github.com/coilhq/tigerbeetle) github repo as an example on macOS 12 with an M1X
+
+Archiving:
+![image](https://user-images.githubusercontent.com/709451/141054452-73a99912-94ce-44aa-b7cb-b788731d0a60.png)
+
+Extracting:
+![image](https://user-images.githubusercontent.com/709451/141054517-cb3c7b43-4730-40ee-9c3f-7bdd9de6a076.png)
+
 ## Why faster?
 
 - [`copy_file_range`](https://man7.org/linux/man-pages/man2/copy_file_range.2.html)
