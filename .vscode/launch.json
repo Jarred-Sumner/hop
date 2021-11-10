@@ -1,0 +1,32 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Extract",
+      "program": "${workspaceFolder}/zig-out/bin/hop",
+      "args": ["testdir2.hop"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "node_modules",
+      "program": "${workspaceFolder}/zig-out/bin/hop",
+      "args": ["node_modules"],
+      "cwd": "/Users/jarred/Build/clonefile-bench/huge"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/zig-out/bin/hop",
+      "args": ["testdir"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

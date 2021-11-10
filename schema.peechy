@@ -1,0 +1,24 @@
+package Hop;
+
+struct StringPointer {
+    uint32 off;
+    uint32 len;
+}
+
+struct File {
+    StringPointer name;
+    uint32 name_hash;
+    uint32 chmod;
+    uint32 mtime;
+    uint32 ctime;
+    StringPointer data;
+}
+
+message Archive {
+    uint32 version = 1;
+    uint32 content_offset = 2;
+    File[] files = 3;
+    uint32[] name_hashes = 4;
+    byte[] metadata = 5;
+}
+
