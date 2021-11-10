@@ -1,6 +1,6 @@
 # hop
 
-Fast & simple archive format designed for quickly reading individual files or a handful of individual files. Possibly will be used in [Bun](https://bun.sh).
+Simple archive format designed for fast non-sequential file access & reading. Possibly will be used in [Bun](https://bun.sh).
 
 25x faster than `unzip` and 10x faster than `tar` at reading individual files (uncompressed)
 
@@ -78,9 +78,9 @@ Extracting a `node_modules` folder
 
 ## Why faster?
 
-- It stores an array of hashes for each file path and the file paths are sorted lexigraphically. This makes non-sequential access faster than tar, but can make creating new archives slower.
+- It stores an array of hashes for each file path and the list of files are sorted lexigraphically. This makes non-sequential access faster than tar, but can make creating new archives slower.
 - Does not store directories, only files
-- Does not support appending to the existing file
+- .hop files are read-only (more precisely, one could append but would have to rewrite all metadata)
 - [`copy_file_range`](https://man7.org/linux/man-pages/man2/copy_file_range.2.html)
 - `packed struct` makes serialization & deserialization very fast because there is very little encoding/decoding step.
 
