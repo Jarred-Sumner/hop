@@ -356,7 +356,7 @@ pub const Hop = struct {
         }
     };
 
-    pub const File = struct {
+    pub const File = packed struct {
         /// name
         name: StringPointer,
 
@@ -376,7 +376,7 @@ pub const Hop = struct {
         data: StringPointer,
 
         pub fn decode(reader: anytype) anyerror!File {
-            var this = std.mem.zeroes(File);
+            var this = File{ .name = StringPointer{}, .data = .{} };
 
             this.name = try reader.readValue(StringPointer);
             this.name_hash = try reader.readValue(u32);
