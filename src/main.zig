@@ -284,10 +284,17 @@ pub fn main() anyerror!void {
                     return err;
                 };
             };
-            archive.extract(destination_dir, true) catch |err| {
-                std.log.err("Error extracting archive {s}", .{@errorName(err)});
-                return err;
-            };
+            if (std.os.getenvZ("QUIET") != null) {
+                archive.extract(destination_dir, false) catch |err| {
+                    std.log.err("Error extracting archive {s}", .{@errorName(err)});
+                    return err;
+                };
+            } else {
+                archive.extract(destination_dir, true) catch |err| {
+                    std.log.err("Error extracting archive {s}", .{@errorName(err)});
+                    return err;
+                };
+            }
         }
     } else {
         const input_path = args[args.len - 1];
