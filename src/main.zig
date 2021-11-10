@@ -252,7 +252,7 @@ pub fn main() anyerror!void {
     };
 
     if (hopfile_path_) |hopfile_path| {
-        var archive_file = std.fs.openFileAbsoluteZ(hopfile_path, .{ .read = true }) catch |err| {
+        var archive_file = std.fs.cwd().openFileZ(hopfile_path, .{ .read = true }) catch |err| {
             std.log.err("Error opening archive {s}", .{@errorName(err)});
             return err;
         };
