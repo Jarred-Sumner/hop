@@ -6,11 +6,11 @@ Simple archive format designed for fast non-sequential file access & reading. Po
 
 <img src="https://user-images.githubusercontent.com/709451/141064938-1384381d-6c2f-4ecb-a1c3-a9c15333b6b9.png" />
 
-| Format | Fast random access | Fast extraction | Fast archiving | Compression | Encryption | Append | Mature |
-| ------ | ------------------ | --------------- | -------------- | ----------- | ---------- | ------ | ------ |
-| hop    | ✅                 | ✅              | ✅             | ❌          | ❌         | ❌     | ❌     |
-| tar    | ❌                 | ✅              | ✅             | ❌          | ❌         | ✅     | ✅     |
-| zip    | ✅ (when small)    | ❌              | ❌             | ✅          | ✅         | ✅     | ✅     |
+| Format | Fast random access | Fast extraction | Fast archiving | Compression | Encryption | Append |
+| ------ | ------------------ | --------------- | -------------- | ----------- | ---------- | ------ |
+| hop    | ✅                 | ✅              | ✅             | ❌          | ❌         | ❌     |
+| tar    | ❌                 | ✅              | ✅             | ❌          | ❌         | ✅     |
+| zip    | ✅ (when small)    | ❌              | ❌             | ✅          | ✅         | ✅     |
 
 Features:
 
